@@ -20,9 +20,6 @@
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-        // Désactiver la vérification du certificat SSL (à des fins de débogage uniquement)
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-
         $resp = curl_exec($ch);
 
         if ($e = curl_error($ch)) {
