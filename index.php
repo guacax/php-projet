@@ -15,6 +15,8 @@
         $url = "https://ddragon.leagueoflegends.com/cdn/12.6.1/data/fr_FR/champion.json";
         $data = file_get_contents($url);
         print_r($data);
+
+        // nothing working for now
         ?>
     </body>
 </html>
