@@ -79,7 +79,9 @@
                     echo $champions['name'] . "<br>";
                     echo $champions['title'] . "<br>";
                     echo $champions['blurb'] . "<br>";
-                    ?> </div> <?php
+                    ?>
+                <p><a href="https://ddragon.leagueoflegends.com/cdn/12.6.1/data/fr_FR/champion/<?=$champions['id']?>.json">Voir plus</a></p>
+                </div> <?php
                 }
                 ?>
 
