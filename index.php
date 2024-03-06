@@ -13,8 +13,14 @@
 
         <?php
         $url = "https://ddragon.leagueoflegends.com/cdn/12.6.1/data/fr_FR/champion.json";
-        $data = file_get_contents($url);
-        print_r($data);
+
+        $response = file_get_contents($url);
+
+        $data = json_decode($response, true);
+
+        print_r($data['data']);
+
         ?>
+
     </body>
 </html>
