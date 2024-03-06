@@ -21,18 +21,6 @@
         $data = $data_decode['data'];
 
 
-        function Show_Champs_Info($data)
-        {
-            foreach($data as $champion => $champions)
-            {
-                echo $champions['id'] . "<br>";
-                echo $champions['name'] . "<br>";
-                echo $champions['title'] . "<br>";
-                echo $champions['blurb'] . "<br>";
-            }
-        }
-
-
         /*
          ( [Aatrox] => Array
             ( [version] => 12.6.1
