@@ -12,7 +12,7 @@
         <h1>Le loldex de gua</h1>
 
         <?php
-        $url = "https://ddragon.leagueoflegends.com/cdn/12.6.1/data/fr_FR/champion.json";
+        $url = "https://ddragon.leagueoflegends.com/cdn/14.5.1/data/fr_FR/champion.json";
 
         $response = file_get_contents($url);
 
@@ -72,16 +72,17 @@
 
         <main style="display: flex; flex-wrap: wrap">
                 <?php
-                foreach($data as $champion => $champions)
+                foreach($data as $champions => $champion)
                 {
                     ?> <div style="width: 29%; margin: 2%; background: red;"><?php
-                    echo $champions['id'] . "<br>";
-                    echo $champions['name'] . "<br>";
-                    echo $champions['title'] . "<br>";
-                    echo $champions['blurb'] . "<br>";
-                    ?>
-                <p><a href="https://ddragon.leagueoflegends.com/cdn/12.6.1/data/fr_FR/champion/<?=$champions['id']?>.json">Voir plus</a></p>
-                </div> <?php
+                    echo $champion['name'] . "<br>";
+                    echo $champion['title'] . "<br>";
+                    echo $champion['blurb'] . "<br>";
+                    $image = $champion['image']; ?>
+                    <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/<?=$champion['id']?>.png"> <br>
+                    <p><a href="detail_champion.php?id=<?=$champion['id']?>" target="_blank">Voir plus</a></p>
+                    </div>
+                <?php
                 }
                 ?>
 
