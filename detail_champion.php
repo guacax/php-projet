@@ -36,14 +36,24 @@
 
         $skins = $championDetails['skins'];
 
-        // Afficher le nombre de skins pour le débogage
-        echo "Nombre de skins : " . count($skins);
+
+
+        $spells = $championDetails['spells'];
+        echo "Nb spells: ". count($spells);
+
+        foreach ($spells as $spellKey => $spell) {
+            ?>
+
+            <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/spell/<?=$spell['id']?>.png">
+            <?php
+        }
 
         foreach ($skins as $skinKey => $skin) {
             ?>
             <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?=$championDetails['id']?>_<?=$skin['num']?>.jpg">
             <?php
         }
+
 
 
         // Afficher les informations de l'image
