@@ -1,0 +1,20 @@
+h1, h2 {
+    text-align: center;
+}
+h1{
+    color: var(--gold_4);
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap
+}
+
+div{
+    width: 29%;
+    padding: 1%;
+    margin: 1%;
+    border: #C89B3C solid 1px;
+    border-collapse: collapse;
+    text-align: center;
+}
