@@ -1,5 +1,7 @@
-<?php
+<title>Items</title>
 
+<?php
+    include('./skeleton/header.php');
 //page pour les items
 //
 //url data : https://ddragon.leagueoflegends.com/cdn/14.5.1/data/fr_FR/item.json
@@ -68,13 +70,18 @@
 
     foreach ($data as $itemKey => $item){
         echo $item['name'] . "<br>";
+        ?>
+        <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/<?=$itemKey?>.png"> <br>
+        <?php
 //        echo $itemKey;
         if (isset($item['into'])) {
             $intos = $item['into'];
             echo count($intos) . "<br>";
             foreach ($intos as $intoKey => $into) {
                 echo "Peux évo en : " . $data[$into]['name'] . "<br>";
-
+                ?>
+                <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/<?=$into?>.png"> <br>
+                <?php
             }
         } else {
             echo "Pas d'évo possible <br>";
@@ -82,5 +89,7 @@
 
         echo "<br>";
     }
+
+    include('./skeleton/footer.php');
 
 ?>

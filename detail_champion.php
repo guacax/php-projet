@@ -1,4 +1,9 @@
+<link rel="stylesheet" href="./css/detail_champion.css">
+
 <?php
+
+    include('./skeleton/header.php');
+
     $championId = $_GET['id'];
 
     $url = "https://ddragon.leagueoflegends.com/cdn/14.5.1/data/fr_FR/champion/$championId.json";
@@ -14,14 +19,7 @@
     $championDetails = $data[$championId];
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?=$championDetails['name']?></title>
-    </head>
-    <body>
+    <title><?=$championDetails['name']?></title>
     <h1><?=$championDetails['name']?></h1>
 
 
@@ -780,7 +778,6 @@
 
         */
 
-        ?>
+    include('./skeleton/footer.php');
 
-    </body>
-</html>
+?>
