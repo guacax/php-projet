@@ -11,6 +11,8 @@
     <body>
         <h1>Le loldex de gua</h1>
 
+        <h2><a href="items.php" target="_blank">Items</a></h2>
+
         <?php
         $url = "https://ddragon.leagueoflegends.com/cdn/14.5.1/data/fr_FR/champion.json";
 
