@@ -68,12 +68,13 @@
 
     foreach ($data as $itemKey => $item){
         echo $item['name'] . "<br>";
-        echo $itemKey;
-        if ($item['into']) {
+//        echo $itemKey;
+        if (isset($item['into'])) {
             $intos = $item['into'];
             echo count($intos) . "<br>";
             foreach ($intos as $intoKey => $into) {
-                echo "Peux évo en : " . $into . "<br>";
+                echo "Peux évo en : " . $data[$into]['name'] . "<br>";
+
             }
         } else {
             echo "Pas d'évo possible <br>";
