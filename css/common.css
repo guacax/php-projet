@@ -138,6 +138,7 @@ h1 {
 body {
     background: linear-gradient(var(--blue_7), var(--blue_6));
     color: var(--grey_1);
+    font-family: 'Spiegel';
 }
 
 
