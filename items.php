@@ -77,18 +77,40 @@
         if (isset($item['into'])) {
             $intos = $item['into'];
             echo count($intos) . "<br>";
+
             foreach ($intos as $intoKey => $into) {
                 echo "Peux évo en : " . $data[$into]['name'] . "<br>";
                 ?>
                 <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/<?=$into?>.png"> <br>
                 <?php
+
             }
         } else {
             echo "Pas d'évo possible <br>";
         }
+        foreach (findOrigin($itemKey, $data) as $itemUpgradeKey => $item) {
+            var_dump($item);
+            echo "Peux être obtenu à partir de : " . $data[$item]['name'] . "<br>";
+            ?>
+            <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/<?=$item?>.png"> <br>
+            <?php
+        }
 
         echo "<br>";
     }
+
+function findOrigin ($idItem, $data) {
+        $rtn = [];
+    foreach ($data as $itemKey => $item) {
+        if (isset($item['into'])) {
+            if( array_search($idItem, $item['into'])!=false ){
+                array_push($rtn, $itemKey);
+            }
+        }
+    }
+
+    return $rtn;
+};
 
     include('./skeleton/footer.php');
 
