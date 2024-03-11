@@ -1,9 +1,6 @@
 h1, h2 {
     text-align: center;
 }
-h1{
-    color: var(--gold_4);
-}
 
 main{
     display: flex;
