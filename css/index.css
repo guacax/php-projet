@@ -4,14 +4,20 @@ h1, h2 {
 
 main{
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 div{
-    width: 29%;
-    padding: 1%;
-    margin: 1%;
+    width: 23%;
     border: #C89B3C solid 1px;
+    margin: 0.5%;
     border-collapse: collapse;
     text-align: center;
+}
+
+img{
+    width: 290px;
+    height: 530px; 
+    object-fit: none;
 }
