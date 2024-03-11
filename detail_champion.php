@@ -49,22 +49,6 @@
 
         <p>Passive: <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/passive/<?=$championDetails['passive']['image']['full']?>"></p>
 
-        <!-- <div class="swiper" >
-            <div class="swiper-wrapper">
-            <?php
-                foreach ($skins as $skinKey => $skin) {
-                    ?>
-                    <div class="swiper-slide">
-                        <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?=$championDetails['id']?>_<?=$skin['num']?>.jpg">
-                        <h3><?=$skin['name']?></h3>
-                    </div>
-                    <?php
-                }
-            ?>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div> -->
-
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
             <?php
