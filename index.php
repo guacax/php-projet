@@ -80,14 +80,15 @@ $data = $data_decode['data'];
         {
             ?> 
             <div>
-                <?php
-                echo $champion['name'] . "<br>";
-                echo $champion['title'] . "<br>";
-                echo $champion['blurb'] . "<br>";
-                $image = $champion['image']; ?>
-                <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/<?=$champion['id']?>.png"><br>
-                <p><a href="detail_champion.php?id=<?=$champion['id']?>" target="_blank">Voir plus</a></p>
-                </div>
+                <a href="detail_champion.php?id=<?=$champion['id']?>" target="_blank">
+                    <?php
+                    echo "<h2>" . $champion['name'] . "</h2><br>";
+                    echo "<h3>" . $champion['title'] . "</h3><br>";
+                    // echo $champion['blurb'] . "<br>";
+                    $image = $champion['image']; ?>
+                    <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/<?=$champion['id']?>_0.jpg"><br>
+                </a>
+            </div>
             <?php
         }
     ?>
