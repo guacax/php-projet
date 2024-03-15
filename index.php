@@ -16,6 +16,20 @@ $data_decode = json_decode($response, true);
 $data = $data_decode['data'];
 
 
+$searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
+$filteredChampions = [];
+
+if (!empty($searchTerm)) {
+    foreach ($data as $champion) {
+        if (stripos($champion['name'], $searchTerm) !== false) {
+            $filteredChampions[] = $champion;
+        }
+    }
+} else {
+    // Si aucune recherche n'est effectuée, afficher tous les champions
+    $filteredChampions = $data;
+}
+
 /*
     [Aatrox] => Array
     (
@@ -74,24 +88,52 @@ $data = $data_decode['data'];
 */
 ?>
 
+<form id="searchForm" method="get" action="">
+    <input type="text" id="searchInput" name="search" placeholder="<?=$searchTerm?>">
+    <button type="submit" value="Rechercher un champion"><img src="./assets/search.svg" alt="search"></button>
+    <?php
+    if (!empty($searchTerm)) {
+        ?><a href="./"><img src="./assets/close.svg"></a>
+    <?php } ?>
+</form>
+
+
 <main>
     <?php
-        foreach($data as $champions => $champion)
+        foreach($filteredChampions as $champions => $champion)
         {
             ?> 
-            <div>
+            
                 <a href="detail_champion.php?id=<?=$champion['id']?>" target="_blank">
                     <?php
-                    echo "<h2>" . $champion['name'] . "</h2><br>";
-                    echo "<h3>" . $champion['title'] . "</h3><br>";
                     // echo $champion['blurb'] . "<br>";
                     $image = $champion['image']; ?>
-                    <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/<?=$champion['id']?>_0.jpg"><br>
+                    <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/<?=$champion['id']?>_0.jpg">
+                    <?php echo "<h2>" . $champion['name'] .  "</h2>";?>
                 </a>
-            </div>
             <?php
         }
     ?>
 </main>
+<script>
+    $(document).ready(function () {
+        $('#searchForm').on('submit', function (event) {
+            // Empêcher le comportement par défaut du formulaire
+            event.preventDefault();
 
+            // Récupérer le terme de recherche
+            var searchTerm = $('#searchInput').val();
+
+            // Effectuer une requête AJAX pour filtrer les champions
+            $.ajax({
+                url: 'index.php',
+                method: 'GET',
+                data: { search: searchTerm },
+                success: function (response) {
+                    $('#championList').html(response);
+                }
+            });
+        });
+    });
+</script>
 <?php include('./skeleton/footer.php') ?>
