@@ -135,30 +135,12 @@ h1 {
     color: var(--gold_4);
 }
 
+a{
+    text-decoration: none;
+}
+
 body {
-    background: linear-gradient(var(--blue_7), var(--blue_6));
     color: var(--grey_1);
     font-family: 'Spiegel';
 }
 
-
-.swiper {
-    width: 80%;
-    height: 80%;
-    }
-
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
