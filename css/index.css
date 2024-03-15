@@ -1,23 +1,65 @@
-h1, h2 {
+*{
     text-align: center;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input{
+    text-align: left;
+    border: 1px var(--grey_1) solid;
+    /* height: 28px; */
+    border-radius: 15px 0 0 15px;
+    font-family: 'Spiegel';
+    font-size: medium;
+    padding: 0.5em 1rem;
+}
+
+button{
+    border: 1px var(--grey_1) solid;
+    border-radius: 0 15px 15px 0;
+    border-left: 0;
+    padding: 3px;
+    background-color: white;
 }
 
 main{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
-div{
-    width: 23%;
-    border: #C89B3C solid 1px;
-    margin: 0.5%;
-    border-collapse: collapse;
-    text-align: center;
+main a{
+    cursor: default;
+    width: 17rem;
+    height: 32rem;
+    margin: 1rem 0;
 }
 
-img{
-    width: 290px;
-    height: 530px; 
+main a img{
+    cursor: pointer;
+    width: 17rem;
+    height: 32rem; 
     object-fit: none;
+}
+
+main a h2{
+    cursor: pointer;
+    position: relative;
+    bottom: 4rem;
+    background: linear-gradient(90deg, var(--blue_7), var(--blue_4));
+    padding: 5px;
+    color: white;
+}
+
+main a:hover{
+    transform: scale3d(1.05, 1.05, 1);
+    transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s, background 0.4s;
+}
+
+main a:hover h2{
+    background: var(--blue_4);
 }
