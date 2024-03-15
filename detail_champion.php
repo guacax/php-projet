@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="./css/detail_champion.css">
 
 <?php
 
@@ -24,6 +24,7 @@
     <!-- <link rel="stylesheet" href="./css/detail_champion.css"> -->
 </head>
 <body>
+    <h2><a href="index.php">index</a></h2>
     <h1><?=$championDetails['name']?></h1>
     <?php
     $image = $championDetails['image'];
@@ -56,24 +57,32 @@
                     ?>
                     <div class="swiper-slide">
                         <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?=$championDetails['id']?>_<?=$skin['num']?>.jpg">
-                        <h3><?=$skin['name']?></h3>
+                        <?php
+                            if ($skin['name'] == 'default') {
+                                echo "<h3>Défaut</h3>";
+                                
+                            }else{
+                                echo "<h3>" . $skin['name'] . "</h3>";
+
+                            }
+                        ?>
+                        
                     </div>
                     <?php
                 }
             ?>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script>
-            var swiper = new Swiper(".swiper", {
+            var swiper = new Swiper(".mySwiper", {
+                effect: "cards",
                 loop: true,
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
+                grabCursor: true,
+                keyboard: {
+                    enabled: true,
+                }
             });
         </script>
     <?php
