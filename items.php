@@ -73,6 +73,7 @@
         ?>
         <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/<?=$itemKey?>.png"> <br>
         <?php
+echo "tes là ?";
 //        echo $itemKey;
         if (isset($item['into'])) {
             $intos = $item['into'];
@@ -83,13 +84,12 @@
                 ?>
                 <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/<?=$into?>.png"> <br>
                 <?php
-
             }
         } else {
             echo "Pas d'évo possible <br>";
         }
         foreach (findOrigin($itemKey, $data) as $itemUpgradeKey => $item) {
-            var_dump($item);
+            // var_dump($item);
             echo "Peux être obtenu à partir de : " . $data[$item]['name'] . "<br>";
             ?>
             <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/<?=$item?>.png"> <br>
