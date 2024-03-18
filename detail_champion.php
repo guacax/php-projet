@@ -24,13 +24,17 @@
     <!-- <link rel="stylesheet" href="./css/detail_champion.css"> -->
 </head>
 <body>
-    <h2><a href="index.php">index</a></h2>
-    <h1><?=$championDetails['name']?></h1>
-    <?php
-    $image = $championDetails['image'];
-    echo "Titre: " . $championDetails['title'] . "<br>";
-    ?>
-    <p>Image: <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/<?=$championDetails['id']?>.png"> <br></p>
+    <header>
+        <h2><a href="index.php">index</a></h2>
+        <h1><?=$championDetails['name']?></h1>
+        <?php
+        $image = $championDetails['image'];
+        ?>
+        <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/<?=$championDetails['id']?>.png"><br>
+        <?php
+        echo "<h2>" . $championDetails['title'] . "</h2>";
+        ?>
+    </header>
     <?php
         echo "Lore: " . $championDetails['lore'] . "<br>";
         echo "Nb Skins: " .count($championDetails['skins']) . "<br>";
@@ -76,13 +80,22 @@
 
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script>
-            var swiper = new Swiper(".mySwiper", {
-                effect: "cards",
+            var swiper2 = new Swiper(".mySwiper", {
                 loop: true,
                 grabCursor: true,
+                effect: "creative",
+                creativeEffect: {
+                    prev: {
+                    shadow: true,
+                    translate: [0, 0, -400],
+                    },
+                    next: {
+                    translate: ["100%", 0, 0],
+                    },
+                },
                 keyboard: {
                     enabled: true,
-                }
+                },
             });
         </script>
     <?php
