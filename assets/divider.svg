@@ -1,0 +1,18 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 387 87" width="387" height="87">
+	<title>HT_MetalLibrary-ai</title>
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="m356.53 49.5h-321.5v-10h321.5z"/>
+		</clipPath>
+	</defs>
+	<style>
+		.s0 { fill: none;stroke: #C89B3C;stroke-miterlimit:10 } 
+		.s1 { fill: none;stroke: #C89B3C;stroke-miterlimit:10;stroke-width: 2 } 
+	</style>
+	<g id="Containers">
+		<path id="&lt;Path&gt;" class="s0" d="m356.5 39.5h-116.8l-9.9 10h-68l-10-10h-116.8"/>
+		<g id="&lt;Clip Group&gt;" clip-path="url(#cp1)">
+			<path id="&lt;Path&gt;" class="s1" d="m35 43.5h127l7 7h53.5l7-7h127"/>
+		</g>
+	</g>
+</svg>
