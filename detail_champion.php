@@ -24,16 +24,36 @@
     <!-- <link rel="stylesheet" href="./css/detail_champion.css"> -->
 </head>
 <body>
+    <h2><a href="index.php">index</a></h2>
     <header>
-        <h2><a href="index.php">index</a></h2>
-        <h1><?=$championDetails['name']?></h1>
-        <?php
-        $image = $championDetails['image'];
-        ?>
-        <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/<?=$championDetails['id']?>.png"><br>
-        <?php
-        echo "<h2>" . $championDetails['title'] . "</h2>";
-        ?>
+        <div class="bgImage" style="background-image: url(https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?=$championDetails['id']?>_0.jpg); 
+        position: relative;
+        background-repeat: no-repeat;
+        left: -10%;
+        right: 0;
+        z-index: 1;
+        width: 120%;
+        height: 120%;
+        overflow: hidden;
+        background-size: cover;
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px)"></div>
+        <img id="ornaments" src="./assets/upLol.svg">
+        <div class="info">
+            <?php
+            $image = $championDetails['image'];
+            ?>
+            <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?=$championDetails['id']?>_0.jpg">
+            <h1><?=$championDetails['name']?></h1>
+            <img id="test" src="./assets/divider.svg">
+            <?php
+            echo "<h2>" . $championDetails['title'] . "</h2>";
+            ?>
+        </div>
+        
     </header>
     <?php
         echo "Lore: " . $championDetails['lore'] . "<br>";
@@ -76,6 +96,8 @@
                 }
             ?>
             </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -84,6 +106,10 @@
                 loop: true,
                 grabCursor: true,
                 effect: "creative",
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
                 creativeEffect: {
                     prev: {
                     shadow: true,
