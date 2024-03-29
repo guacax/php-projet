@@ -63,12 +63,14 @@
         $skins = $championDetails['skins'];
 
         $spells = $championDetails['spells'];
-        echo "Nb spells: ". count($spells);
-
+        
         foreach ($spells as $spellKey => $spell) {
             ?>
             <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/spell/<?=$spell['id']?>.png">
+            <br>
             <?php
+            echo "Nom: " . $spell['name'] . "<br>";
+            echo "Description: " . $spell['description'] . "<br>";
         }
         ?>
 
