@@ -65,19 +65,79 @@
         $data = $dataDecoded['data'];?>
         <?php
 
-        function findOrigin($idItem, $data) {
-            $rtn = [];
-            foreach ($data as $itemKey => $item) {
-                if (isset($item['into'])) {
-                    if (in_array($idItem, $item['into'])) {
-                        $rtn[$itemKey] = $item;
-                    }
-                }
+        $displayedItems = array();
+
+        $groupedItems = array();
+
+        foreach ($data as $itemKey => $item) {
+            $itemName = $item['name'];
+            if (!isset($groupedItems[$itemName])) {
+                $groupedItems[$itemName] = array();
             }
-            return $rtn;
+            $groupedItems[$itemName][] = array(
+                'id' => $itemKey,
+                'item' => $item
+            );
         }
 
-        foreach ($data as $itemKey => $item){
+        foreach ($groupedItems as $itemName => $items){
+            $evolutionDisplayed = false;
+            
+            ?>
+            <div class="item">
+                <span class="basicInfo">
+                    <?php
+                    echo $itemName . "<br>";
+                    ?>
+                    
+                    <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/<?=$groupedItems[$itemName][0]['id']?>.png"> <br>
+                    <div class="moreInfo">
+                    <?php
+                    foreach ($items as $itemData) {
+                        $itemKey = $itemData['id'];
+                        $item = $itemData['item'];
+
+                        if (isset($item['into'])) {
+                            if (!$evolutionDisplayed) {
+                                $intos = $item['into'];
+    
+                                foreach ($intos as $intoKey => $intoItemId) {
+                                    echo "Peux évo en : " . $data[$intoItemId]['name'] . "<br>";
+                                    ?>
+                                    <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/<?=$intoItemId?>.png"> <br>
+                                    <?php
+                                }
+                                $evolutionDisplayed = true; // Set the flag to true
+                            }
+                        } else {
+                            if (!$evolutionDisplayed) {
+                                echo "Pas d'évo possible <br>";
+                                $evolutionDisplayed = true; // Set the flag to true
+                            }
+                        }
+                        
+                        if (isset($item['from'])) {
+                            $froms = $item['from'];
+                            foreach ($froms as $fromKey => $fromItemId) {
+                                echo "Peux être obtenu à partir de : " . $data[$fromItemId]['name'] . "<br>";
+                                ?>
+                                <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/<?=$fromItemId?>.png"> <br>
+                                <?php
+                            }
+                        } else {
+                            echo "Ne peux être obtenu que par achat depuis la boutique <br>";
+                        }
+                    }
+                    ?>
+                    </span>
+                </div>
+                <button class="btn">Voir plus</button>
+            </div>
+            <?php
+        }
+?>
+<?php
+        /*foreach ($data as $itemKey => $item){
         ?>
             <div class="item">
                 <span class="basicInfo">
@@ -117,7 +177,7 @@
             </div>
         <?php
         }
-
+*/
         ?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script>
