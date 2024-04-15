@@ -26,21 +26,6 @@
 <body>
     <h2><a href="index.php">index</a></h2>
     <header>
-        <div class="bgImage" style="background-image: url(https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?=$championDetails['id']?>_0.jpg); 
-        position: relative;
-        background-repeat: no-repeat;
-        left: -10%;
-        right: 0;
-        z-index: 1;
-        width: 120%;
-        height: 120%;
-        overflow: hidden;
-        background-size: cover;
-        -webkit-filter: blur(5px);
-        -moz-filter: blur(5px);
-        -o-filter: blur(5px);
-        -ms-filter: blur(5px);
-        filter: blur(5px)"></div>
         <img id="ornaments" src="./assets/upLol.svg">
         <div class="info">
             <?php
