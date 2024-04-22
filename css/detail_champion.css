@@ -1,51 +1,66 @@
 body{
-    background: linear-gradient(var(--blue_7), var(--blue_6));
-    margin: 0;
-    padding: 0;
+	background: linear-gradient(var(--blue_7), var(--blue_4));
+	margin: 0;
+	padding: 0;
 }
 
 header{
-    text-align: center;
-    overflow: hidden;
-}
-
-#ornaments{
-    z-index: 3;
-    position: absolute;
-    top: 5%;
-    left: 33.5%;
-    color: var(--gold_4);
+	text-align: center;
+	overflow: hidden;
 }
 
 .swiper {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-}
-
-.swiper-cards{
-    overflow: hidden;
+	width: 80%;
+	height: 300px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .swiper-slide {
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    font-weight: bold;
-    color: #fff;
-    background-color: var(--blue_7);
+	background-size: cover;
+	background-position: center;
 }
-.swiper-slide img{
-    border-radius: 18px;
-    width: 90%;
-    height: 90%;
-    object-fit: contain;
+
+.mySwiper2 {
+	height: 100%;
+	width: 80%;
 }
-.swiper-button-next{
-    right: 13%!important;
+
+.mySwiper {
+	margin-top: 1%;
+	margin-bottom: 1%;
+	height: 20%;
+	box-sizing: border-box;
+	padding: 10px 0;
 }
-.swiper-button-prev{
-    left: 13%!important;
+
+.mySwiper .swiper-slide {
+	width: 25%;
+	height: 100%;
+	opacity: 0.4;
+}
+
+.mySwiper h3 {
+	position: relative;
+	width: auto;
+	top: -45px;
+	color: var(--gold_1);
+}
+
+.mySwiper h3 span{
+	background-color: var(--gold_2);
+	padding: 1% 3%;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+	opacity: 1;
+}
+
+.swiper-slide img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
