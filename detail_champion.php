@@ -26,7 +26,6 @@
 <body>
     <h2><a href="index.php">index</a></h2>
     <header>
-        <img id="ornaments" src="./assets/upLol.svg">
         <div class="info">
             <?php
             $image = $championDetails['image'];
@@ -61,57 +60,72 @@
 
         <p>Passive: <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/passive/<?=$championDetails['passive']['image']['full']?>"></p>
 
-        <div class="swiper mySwiper">
+        <div class="swiper mySwiper2">
             <div class="swiper-wrapper">
             <?php
                 foreach ($skins as $skinKey => $skin) {
                     ?>
                     <div class="swiper-slide">
                         <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?=$championDetails['id']?>_<?=$skin['num']?>.jpg">
-                        <?php
-                            if ($skin['name'] == 'default') {
-                                echo "<h3>Défaut</h3>";
-                                
-                            }else{
-                                echo "<h3>" . $skin['name'] . "</h3>";
-
-                            }
-                        ?>
-                        
                     </div>
                     <?php
                 }
-            ?>
+                ?>
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script>
-            var swiper2 = new Swiper(".mySwiper", {
-                loop: true,
-                grabCursor: true,
-                effect: "creative",
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-                creativeEffect: {
-                    prev: {
-                    shadow: true,
-                    translate: [0, 0, -400],
+        <div thumbsSlider="" class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <?php
+                foreach ($skins as $skinKey => $skin) {
+                    ?>
+                    <div class="swiper-slide">
+                        <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?=$championDetails['id']?>_<?=$skin['num']?>.jpg">
+                        <?php
+                            if ($skin['name'] == 'default') {
+                            ?>    
+                                <h3><span>Défaut</span></h3>
+                            <?php    
+                            }else{
+                            ?>
+                                <h3><span><?=$skin['name']?></span></h3>
+                            <?php
+                            }
+                        ?>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+            
+            
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            <script>
+                var swiper = new Swiper(".mySwiper", {
+                    loop: true,
+                    spaceBetween: 10,
+                    slidesPerView: 4,
+                    freeMode: true,                
+                    watchSlidesProgress: true,
+                    keyboard: {
+                        enabled: true,
+                    }
+                }); 
+                
+                var swiper2 = new Swiper(".mySwiper2", {
+                    loop: true,
+                    spaceBetween: 10,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },        
+                    thumbs: {
+                        swiper: swiper,
                     },
-                    next: {
-                    translate: ["100%", 0, 0],
-                    },
-                },
-                keyboard: {
-                    enabled: true,
-                },
-            });
-        </script>
-    <?php
+                });
+            </script>
+        <?php
             /*
                 Info pour les skin :
                     url type : https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_2.jpg
