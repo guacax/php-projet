@@ -1,8 +1,68 @@
+*{
+	text-align: center;
+}
 
+body{
+	background: radial-gradient(circle, var(--blue_1), var(--blue_4));
+}
+
+.container{
+	width: 95%;
+	background-color: rgba(0, 0, 0, 0.4);
+	padding-bottom: 2%;
+	margin: auto;
+	color: var(--grey_5);
+	border-radius: 90px;
+	border: 1px solid var(--grey_2);
+}
 
 header{
-	text-align: center;
 	overflow: hidden;
+}
+
+header img:first-of-type{
+	border-radius: 25px;
+	border: 1px solid var(--gold_2);
+}
+
+
+.typeLore{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.type{
+	width: 40%;
+	margin-left: 10%;
+}
+
+.lore{
+	width: 38%;
+	text-align: left;
+	margin-right: 10%;
+	margin-left: 2%;
+}
+
+.powers{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.powers h2{
+	display: block;
+	width: 100%;
+}
+
+.spell{
+	width: 38%;
+}
+.spell:first-of-type, .spell:nth-of-type(3){
+	margin-left: 10%;
+	margin-right: 2%;
+}
+.spell:nth-of-type(2), .spell:last-of-type{
+	margin-right: 10%;
+	margin-left: 2%;
 }
 
 .swiper {
@@ -21,8 +81,8 @@ header{
 .mySwiper2 {
 	height: 100%;
 	width: 80%;
-	border-bottom-left-radius: 15px;
-	border-top-right-radius: 15px;
+	border-bottom-left-radius: 55px;
+	border-top-right-radius: 55px;
 }
 
 .mySwiper {
@@ -30,11 +90,6 @@ header{
 	margin-bottom: 1%;
 	height: 20%;
 	box-sizing: border-box;
-	padding-top: 1000px;
-	position: relative;
-	top: -197px;
-	z-index: 2!important;
-	background-color:rgba(0, 0, 0, 0.5);
 	border-bottom-left-radius: 15px;
 }
 
@@ -51,6 +106,7 @@ header{
 
 .mySwiper h3 {
 	position: relative;
+	text-align: left;
 	width: auto;
 	top: -45px;
 	color: var(--gold_1);
