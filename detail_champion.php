@@ -14,8 +14,6 @@ $data_decode = json_decode($response, true);
 
 $data = $data_decode['data'];
 
-//print_r($data);
-
 $championDetails = $data[$championId];
 
 echo "<title>" . $championDetails['name'] . "</title>"
@@ -25,110 +23,139 @@ echo "<title>" . $championDetails['name'] . "</title>"
 
 <body>
     <h2><a href="index.php">index</a></h2>
-    <header>
-        <div class="info">
-            <?php
-            $image = $championDetails['image'];
-            ?>
-            <h1><?= $championDetails['name'] ?></h1>
-            <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_0.jpg">
-            <?php
-            echo "<h2>" . $championDetails['title'] . "</h2>";
-            ?>
-            <img src="./assets/divider.svg">
-        </div>
-
-    </header>
-    <?php
-    echo "Lore: " . $championDetails['lore'] . "<br>";
-    echo "Nb Skins: " . count($championDetails['skins']) . "<br>";
-
-
-    $skins = $championDetails['skins'];
-
-    $spells = $championDetails['spells'];
-
-    foreach ($spells as $spellKey => $spell) {
-        ?>
-        <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/spell/<?= $spell['id'] ?>.png">
-        <br>
-        <?php
-        echo "Nom: " . $spell['name'] . "<br>";
-        echo "Description: " . $spell['description'] . "<br>";
-    }
-    ?>
-
-    <p>Passive: <img
-            src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/passive/<?= $championDetails['passive']['image']['full'] ?>">
-    </p>
-
-    <div class="swiper mySwiper2">
-        <div class="swiper-wrapper">
-            <?php
-            foreach ($skins as $skinKey => $skin) {
+    <div class="container">
+        <header>
+            <div class="info">
+                <?php
+                $image = $championDetails['image'];
                 ?>
-                <div class="swiper-slide">
-                    <img
-                        src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
+                <h1><?= $championDetails['name'] ?></h1>
+                <img
+                    src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_0.jpg">
+                <?php
+                echo "<h2>" . $championDetails['title'] . "</h2>";
+                ?>
+                <img src="./assets/divider.svg">
+            </div>
+
+        </header>
+        <div class="typeLore">
+
+            <?php
+            echo "<div class='type'>";
+            echo "<h2>Type</h2>";
+
+            $tags = $championDetails['tags'];
+            foreach ($tags as $tag) {
+                echo $tag . "<br>";
+            }
+            echo "</div>";
+            echo "<div class='lore'>";
+            echo "<h2>Son background</h2>";
+            echo $championDetails['lore'];
+            echo '</div>';
+
+            $skins = $championDetails['skins'];
+
+            $spells = $championDetails['spells'];
+            ?>
+        </div>
+        <img src="./assets/divider.svg">
+
+        <div class="powers">
+            <h2>Les sorts</h2>
+            <?php
+            foreach ($spells as $spellKey => $spell) {
+                ?>
+                <div class="spell">
+                    <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/spell/<?= $spell['id'] ?>.png">
+                    <br>
+                    <?php
+                    echo $spell['name'] . "<br>";
+                    echo $spell['description'] . "<br>";
+                    ?>
                 </div>
                 <?php
             }
             ?>
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-
-    <div thumbsSlider="" class="swiper mySwiper">
-        <div class="swiper-wrapper">
-            <?php
-            foreach ($skins as $skinKey => $skin) {
-                ?>
-                <div class="swiper-slide">
-                    <img
-                        src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
-                    <?php
-                    if ($skin['name'] == 'default') {
-                        ?>
-                        <h3><span>Défaut</span></h3>
-                    <?php
-                    } else {
-                        ?>
-                        <h3><span><?= $skin['name'] ?></span></h3>
-                        <?php
-                    }
-                    ?>
-                </div>
-            <?php } ?>
+        <div>
+            <p>Passive: </p>
+            <img
+                src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/passive/<?= $championDetails['passive']['image']['full'] ?>">
+            <p><?= $championDetails['passive']['name'] ?></p>
+            <p><?= $championDetails['passive']['description'] ?></p>
         </div>
+
+        <img src="./assets/divider.svg">
+
+        <h2>Les skins</h2>
+        <div class="swiper mySwiper2">
+            <div class="swiper-wrapper">
+                <?php
+                foreach ($skins as $skinKey => $skin) {
+                    ?>
+                    <div class="swiper-slide">
+                        <img
+                            src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <div thumbsSlider="" class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <?php
+                foreach ($skins as $skinKey => $skin) {
+                    ?>
+                    <div class="swiper-slide">
+                        <img
+                            src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
+                        <?php
+                        if ($skin['name'] == 'default') {
+                            ?>
+                            <h3><span>Défaut</span></h3>
+                            <?php
+                        } else {
+                            ?>
+                            <h3><span><?= $skin['name'] ?></span></h3>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                spaceBetween: 10,
+                slidesPerView: 4,
+                freeMode: true,
+                watchSlidesProgress: true,
+                keyboard: {
+                    enabled: true,
+                }
+            });
+
+            var swiper2 = new Swiper(".mySwiper2", {
+                spaceBetween: 10,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                thumbs: {
+                    swiper: swiper,
+                },
+            });
+        </script>
     </div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            loop: true,
-            spaceBetween: 10,
-            slidesPerView: 4,
-            freeMode: true,
-            watchSlidesProgress: true,
-            keyboard: {
-                enabled: true,
-            }
-        });
-
-        var swiper2 = new Swiper(".mySwiper2", {
-            loop: true,
-            spaceBetween: 10,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            thumbs: {
-                swiper: swiper,
-            },
-        });
-    </script>
     <?php
     /*
         Info pour les skin :
@@ -140,8 +167,8 @@ echo "<title>" . $championDetails['name'] . "</title>"
             changement de spell pour afficher : q,w,e,r
 
         Info pour les loading :
-            url type : https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg
-            changement de loading comme pour les skins
+        url type : https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg
+        changement de loading comme pour les skins
     */
 
     /*
