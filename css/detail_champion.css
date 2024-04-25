@@ -6,6 +6,25 @@ body{
 	background: radial-gradient(circle, var(--blue_1), var(--blue_4));
 }
 
+nav{
+	display: flex;
+	justify-content: space-evenly;
+}
+a{
+	color: whitesmoke;
+	padding: 10px;
+	border-radius: 15px;
+	border: 1px solid var(--gold_1);
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+a:hover{
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	color: var(--grey_2);
+	background-color: whitesmoke;
+	transition: 0.5s;
+}
+
 .container{
 	width: 95%;
 	background-color: rgba(0, 0, 0, 0.4);
