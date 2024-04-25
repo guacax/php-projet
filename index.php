@@ -1,4 +1,4 @@
-<?php include('./skeleton/header.php') ?>
+<?php include ('./skeleton/header.php') ?>
 
 <link rel="stylesheet" href="./css/index.css">
 <h1>Le loldex de gua</h1>
@@ -89,7 +89,7 @@ if (!empty($searchTerm)) {
 ?>
 
 <form id="searchForm" method="get" action="">
-    <input type="text" id="searchInput" name="search" placeholder="<?=$searchTerm?>">
+    <input type="text" id="searchInput" name="search" placeholder="<?= $searchTerm ?>">
     <button type="submit" value="Rechercher un champion"><img src="./assets/search.svg" alt="search"></button>
     <?php
     if (!empty($searchTerm)) {
@@ -100,19 +100,18 @@ if (!empty($searchTerm)) {
 
 <main>
     <?php
-        foreach($filteredChampions as $champions => $champion)
-        {
-            ?> 
-            
-                <a href="detail_champion.php?id=<?=$champion['id']?>" target="_blank">
-                    <?php
-                    // echo $champion['blurb'] . "<br>";
-                    $image = $champion['image']; ?>
-                    <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/<?=$champion['id']?>_0.jpg">
-                    <?php echo "<h2>" . $champion['name'] .  "</h2>";?>
-                </a>
+    foreach ($filteredChampions as $champions => $champion) {
+        ?>
+
+        <a href="detail_champion.php?id=<?= $champion['id'] ?>" target="_blank">
             <?php
-        }
+            // echo $champion['blurb'] . "<br>";
+            $image = $champion['image']; ?>
+            <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/<?= $champion['id'] ?>_0.jpg">
+            <?php echo "<h2>" . $champion['name'] . "</h2>"; ?>
+        </a>
+        <?php
+    }
     ?>
 </main>
 <script>
@@ -136,4 +135,4 @@ if (!empty($searchTerm)) {
         });
     });
 </script>
-<?php include('./skeleton/footer.php') ?>
+<?php include ('./skeleton/footer.php') ?>
