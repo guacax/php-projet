@@ -22,8 +22,11 @@ echo "<title>" . $championDetails['name'] . "</title>"
 </head>
 
 <body>
-    <h2><a href="index.php">index</a></h2>
     <div class="container">
+        <nav>
+            <h2><a href="index.php">Index</a></h2>
+            <h2><a href="items.php">Items</a></h2>
+        </nav>
         <header>
             <div class="info">
                 <?php
