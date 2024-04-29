@@ -6,7 +6,7 @@ include ('./skeleton/header.php');
 
 $championId = $_GET['id'];
 
-$url = "https://ddragon.leagueoflegends.com/cdn/14.5.1/data/fr_FR/champion/$championId.json";
+$url = "https://ddragon.leagueoflegends.com/cdn/14.8.1/data/fr_FR/champion/$championId.json";
 
 $response = file_get_contents($url);
 
@@ -33,8 +33,10 @@ echo "<title>" . $championDetails['name'] . "</title>"
                 $image = $championDetails['image'];
                 ?>
                 <h1><?= $championDetails['name'] ?></h1>
-                <img class="desktop" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_0.jpg">
-                <img class="phone" src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/<?= $championDetails['id'] ?>_0.jpg">
+                <img class="desktop"
+                    src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_0.jpg">
+                <img class="phone"
+                    src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/<?= $championDetails['id'] ?>_0.jpg">
                 <?php
                 echo "<h2>" . $championDetails['title'] . "</h2>";
                 ?>
@@ -71,7 +73,7 @@ echo "<title>" . $championDetails['name'] . "</title>"
             foreach ($spells as $spellKey => $spell) {
                 ?>
                 <div class="spell">
-                    <img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/spell/<?= $spell['id'] ?>.png">
+                    <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/spell/<?= $spell['id'] ?>.png">
                     <br>
                     <?php
                     echo $spell['name'] . "<br>";
@@ -85,7 +87,7 @@ echo "<title>" . $championDetails['name'] . "</title>"
         <div>
             <p>Passive: </p>
             <img
-                src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/passive/<?= $championDetails['passive']['image']['full'] ?>">
+                src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/passive/<?= $championDetails['passive']['image']['full'] ?>">
             <p><?= $championDetails['passive']['name'] ?></p>
             <p><?= $championDetails['passive']['description'] ?></p>
         </div>
@@ -99,8 +101,10 @@ echo "<title>" . $championDetails['name'] . "</title>"
                 foreach ($skins as $skinKey => $skin) {
                     ?>
                     <div class="swiper-slide">
-                        <img class="desktop" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
-                        <img class="phone" src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
+                        <img class="desktop"
+                            src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
+                        <img class="phone"
+                            src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
                         <?php
                         if ($skin['name'] == 'default') {
                             ?>
@@ -127,7 +131,8 @@ echo "<title>" . $championDetails['name'] . "</title>"
                 foreach ($skins as $skinKey => $skin) {
                     ?>
                     <div class="swiper-slide">
-                        <img class="desktop" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
+                        <img class="desktop"
+                            src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
                         <?php
                         if ($skin['name'] == 'default') {
                             ?>
@@ -139,7 +144,8 @@ echo "<title>" . $championDetails['name'] . "</title>"
                             <?php
                         }
                         ?>
-                        <img class="phone" src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
+                        <img class="phone"
+                            src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
                     </div>
                 <?php } ?>
             </div>

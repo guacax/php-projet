@@ -1,7 +1,7 @@
 <?php
 include ('./skeleton/header.php');
 
-$url = "https://ddragon.leagueoflegends.com/cdn/14.5.1/data/fr_FR/item.json";
+$url = "https://ddragon.leagueoflegends.com/cdn/14.8.1/data/fr_FR/item.json";
 
 $response = file_get_contents($url);
 
@@ -19,18 +19,16 @@ if (isset($_GET['id'])) {
 			</head>
 
 			<body>
-				<a href="items.php">Liste des items</a><br>
-				<p>Item Name: <?= $item['name'] ?></p><br>
-				<p>Bonus: <?= $item['description'] ?></p><br>
+				<a href="items.php">Liste des items</a>
+				<h1><?= $item['name'] ?></h1>
 				<?php
-					if ($item['plaintext'] !== '') {
-						?>
-						<p>Description: <?= $item['plaintext'] ?></p><br>
-						<?php
-					}
+				if ($item['plaintext'] !== '') {
+					echo "<h2>" . $item['plaintext'] . "</h2>";
+				}
 				?>
-				<p>Prix : <?= $item['gold']['base'] ?> golds</p><br>
-				<img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/<?= $itemId ?>.png"> <br>
+				<p>Effet(s) : <br><?= $item['description'] ?></p>
+				<p>Prix : <?= $item['gold']['base'] ?> golds</p>
+				<img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/<?= $itemId ?>.png"> <br>
 				<?php
 				if (isset($item['into'])) {
 					echo "<p>Peut se transformer en :</p>";
@@ -39,8 +37,8 @@ if (isset($_GET['id'])) {
 						?>
 						<a href="detail_item.php?id=<?= $intoItemId ?>">
 							<div class="transform">
-								<p><?= $data[$intoItemId]['name'] ?></p><br>
-								<img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/<?= $intoItemId ?>.png">
+								<p><?= $data[$intoItemId]['name'] ?></p>
+								<img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/<?= $intoItemId ?>.png">
 							</div>
 						</a>
 						<?php
@@ -54,8 +52,8 @@ if (isset($_GET['id'])) {
 						?>
 						<a href="detail_item.php?id=<?= $fromItemId ?>">
 							<div class="transform">
-								<p><?= $data[$fromItemId]['name'] ?></p><br>
-								<img src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/<?= $fromItemId ?>.png">
+								<p><?= $data[$fromItemId]['name'] ?></p>
+								<img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/<?= $fromItemId ?>.png">
 							</div>
 						</a>
 						<?php
