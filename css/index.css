@@ -8,10 +8,25 @@ form{
     justify-content: center;
 }
 
+h2 a{
+    color: var(--blue_5);
+    padding: 0.4%;
+    background-color: var(--blue_1);
+    border: 1px solid var(--blue_5);
+    border-radius: 15px;
+}
+h2 a:hover{
+    color: var(--blue_1);
+    transition: 0.5s;
+    padding: 0.4%;
+    background-color: var(--blue_5);
+    border: 1px solid var(--blue_1);
+    border-radius: 15px;
+}
+
 input{
     text-align: left;
     border: 1px var(--grey_1) solid;
-    /* height: 28px; */
     border-radius: 15px 0 0 15px;
     font-family: 'Spiegel';
     font-size: medium;

@@ -1,14 +1,47 @@
-body{
+main{
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
+	text-align: center;
+
 }
 
 div.item{
   	width: 20%;
+	margin-top: 5%;
 }
 
 img {
 	width: 64px;
 	height: 64px;
+}
+
+@media screen and (max-width: 900px){
+	div.item{
+		margin: auto;
+		text-align: center;
+		width: 25%;
+	}
+}
+@media screen and (max-width: 750px){
+	div.item{
+		margin: auto;
+		width: 30%;
+	}
+}
+@media screen and (max-width: 550px){
+	div.item{
+		margin: auto;
+		width: 50%;
+	}
+}
+@media screen and (max-width: 350px) {
+	main{
+		display: block;
+	}
+
+	div.item{
+		margin: auto;
+		width: 100%;
+	}
 }
