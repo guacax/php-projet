@@ -7,8 +7,9 @@ include ('./skeleton/header.php');
 </head>
 
 <body>
+    <a href="./index.php">Champions</a>
     <?php
-    $url = "https://ddragon.leagueoflegends.com/cdn/14.5.1/data/fr_FR/item.json";
+    $url = "https://ddragon.leagueoflegends.com/cdn/14.8.1/data/fr_FR/item.json";
 
     $response = file_get_contents($url);
 
@@ -31,25 +32,25 @@ include ('./skeleton/header.php');
             'item' => $item
         );
     }
-
-    foreach ($groupedItems as $itemName => $items) {
-        $evolutionDisplayed = false;
-        ?>
-        <div class="item">
-            <span class="basicInfo">
-                <?php
-                echo $itemName . "<br>";
-                ?>
-                <img
-                    src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/<?= $groupedItems[$itemName][0]['id'] ?>.png">
-                <br>
-                <a href="detail_item.php?id=<?= $groupedItems[$itemName][0]['id'] ?>"><button class="btn">Voir
-                        plus</button></a>
-            </span>
-        </div>
-        <?php
-    }
     ?>
+    <main>
+        <?php
+        foreach ($groupedItems as $itemName => $items) {
+            $evolutionDisplayed = false;
+            ?>
+            <div class="item">
+                <span class="basicInfo">
+                    <img
+                        src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/<?= $groupedItems[$itemName][0]['id'] ?>.png">
+                    <p><?= $itemName ?></p>
+                    <a href="detail_item.php?id=<?= $groupedItems[$itemName][0]['id'] ?>"><button class="btn">Voir
+                            plus</button></a>
+                </span>
+            </div>
+            <?php
+        }
+        ?>
+    </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
