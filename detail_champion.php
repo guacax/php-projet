@@ -33,12 +33,12 @@ echo "<title>" . $championDetails['name'] . "</title>"
                 $image = $championDetails['image'];
                 ?>
                 <h1><?= $championDetails['name'] ?></h1>
-                <img
-                    src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_0.jpg">
+                <img class="desktop" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_0.jpg">
+                <img class="phone" src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/<?= $championDetails['id'] ?>_0.jpg">
                 <?php
                 echo "<h2>" . $championDetails['title'] . "</h2>";
                 ?>
-                <img src="./assets/divider.svg">
+                <img class="divider" src="./assets/divider.svg">
             </div>
 
         </header>
@@ -63,7 +63,7 @@ echo "<title>" . $championDetails['name'] . "</title>"
             $spells = $championDetails['spells'];
             ?>
         </div>
-        <img src="./assets/divider.svg">
+        <img class="divider" src="./assets/divider.svg">
 
         <div class="powers">
             <h2>Les sorts</h2>
@@ -90,7 +90,7 @@ echo "<title>" . $championDetails['name'] . "</title>"
             <p><?= $championDetails['passive']['description'] ?></p>
         </div>
 
-        <img src="./assets/divider.svg">
+        <img class="divider" src="./assets/divider.svg">
 
         <h2>Les skins</h2>
         <div class="swiper mySwiper2">
@@ -99,8 +99,19 @@ echo "<title>" . $championDetails['name'] . "</title>"
                 foreach ($skins as $skinKey => $skin) {
                     ?>
                     <div class="swiper-slide">
-                        <img
-                            src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
+                        <img class="desktop" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
+                        <img class="phone" src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
+                        <?php
+                        if ($skin['name'] == 'default') {
+                            ?>
+                            <h3 class="phone"><span>Défaut</span></h3>
+                            <?php
+                        } else {
+                            ?>
+                            <h3 class="phone"><span><?= $skin['name'] ?></span></h3>
+                            <?php
+                        }
+                        ?>
                     </div>
                     <?php
                 }
@@ -116,19 +127,19 @@ echo "<title>" . $championDetails['name'] . "</title>"
                 foreach ($skins as $skinKey => $skin) {
                     ?>
                     <div class="swiper-slide">
-                        <img
-                            src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
+                        <img class="desktop" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
                         <?php
                         if ($skin['name'] == 'default') {
                             ?>
-                            <h3><span>Défaut</span></h3>
+                            <h3 class="desktop"><span>Défaut</span></h3>
                             <?php
                         } else {
                             ?>
-                            <h3><span><?= $skin['name'] ?></span></h3>
+                            <h3 class="desktop"><span><?= $skin['name'] ?></span></h3>
                             <?php
                         }
                         ?>
+                        <img class="phone" src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/<?= $championDetails['id'] ?>_<?= $skin['num'] ?>.jpg">
                     </div>
                 <?php } ?>
             </div>
